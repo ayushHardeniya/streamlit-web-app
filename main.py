@@ -22,5 +22,23 @@ profile_page = st.Page(
 st.logo('exercise.png')
 
 #folowing code will create a navigation menu with the three pages defined above and run the app
-pg = st.navigation([about_page, contact_page, profile_page])
-pg.run() 
+# pg = st.navigation({
+#     'info' : [about_page, contact_page, profile_page],
+#     'My Social Links': {'Website': 'https://www.ayushhardeniya.site', 'GitHub': 'https://www.github.com/ayushHardeniya', 'LinkedIn': 'https://www.linkedin.com/in/ayushhardeniya/', 'Twitter': 'https://x.com/ayushhardeniya'}
+# })
+# pg.run() 
+
+pg = st.navigation({
+    "Info": [about_page, contact_page, profile_page],
+})
+
+# 3. Add your social links to the sidebar manually
+with st.sidebar:
+    st.write("### My Social Links")
+    st.link_button("Website", "https://www.ayushhardeniya.site")
+    st.link_button("GitHub", "https://www.github.com/ayushHardeniya")
+    st.link_button("LinkedIn", "https://www.linkedin.com/in/ayushhardeniya/")
+    st.link_button("Twitter/X", "https://x.com/ayushhardeniya")
+
+# 4. Run the navigation
+pg.run()
